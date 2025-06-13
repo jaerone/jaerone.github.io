@@ -2159,7 +2159,9 @@ var ASM_CONSTS = {
 
   function _GetURLQuery() {
           var query = window.location.search;
-          var buffer = allocate(intArrayFromString(query), 'i8', ALLOC_STACK);
+          var lengthBytes = lengthBytesUTF8(query) + 1;
+          var buffer = stackAlloc(lengthBytes);
+          stringToUTF8(query, buffer, lengthBytes);
           return buffer;
       }
 
