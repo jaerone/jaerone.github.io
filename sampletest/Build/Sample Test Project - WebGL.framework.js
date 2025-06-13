@@ -1993,13 +1993,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1453424: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 1453485: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 1453549: function() {return Module.webglContextAttributes.powerPreference;},  
- 1453607: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 1453662: function($0) {performance.now = function() { return $0; };},  
- 1453710: function($0) {performance.now = function() { return $0; };},  
- 1453758: function() {performance.now = Module['emscripten_get_now_backup'];}
+  1454416: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 1454477: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 1454541: function() {return Module.webglContextAttributes.powerPreference;},  
+ 1454599: function() {Module['emscripten_get_now_backup'] = performance.now;},  
+ 1454654: function($0) {performance.now = function() { return $0; };},  
+ 1454702: function($0) {performance.now = function() { return $0; };},  
+ 1454750: function() {performance.now = Module['emscripten_get_now_backup'];}
 };
 
 
@@ -2156,6 +2156,12 @@ var ASM_CONSTS = {
         HEAPF64[usedJSptr >> 3] = NaN;
       }
     }
+
+  function _GetURLQuery() {
+          var query = window.location.search;
+          var buffer = allocate(intArrayFromString(query), 'i8', ALLOC_STACK);
+          return buffer;
+      }
 
   var JS_Accelerometer = null;
   
@@ -14782,6 +14788,7 @@ function checkIncomingModuleAPI() {
 }
 var asmLibraryArg = {
   "GetJSMemoryInfo": _GetJSMemoryInfo,
+  "GetURLQuery": _GetURLQuery,
   "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
   "JS_Accelerometer_Start": _JS_Accelerometer_Start,
   "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
